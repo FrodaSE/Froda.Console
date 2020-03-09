@@ -1,4 +1,5 @@
 using System;
+using Froda.ConsoleToolkit.Commands.Base;
 
 namespace Froda.ConsoleToolkit
 {
@@ -12,6 +13,11 @@ namespace Froda.ConsoleToolkit
         public object Resolve(Type type)
         {
             return Activator.CreateInstance(type);
+        }
+
+        public void Register<TCommand>() where TCommand : CommandBase
+        {
+            
         }
     }
 }

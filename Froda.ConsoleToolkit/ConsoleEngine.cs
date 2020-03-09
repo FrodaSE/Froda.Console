@@ -21,9 +21,9 @@ namespace Froda.ConsoleToolkit
             _rootCommand = rootCommand;
             _resolver = resolver;
 
-            _rootCommand.Register<ExitCommand>();
-            _rootCommand.Register<ClearCommand>();
-            _rootCommand.Register<ClsCommand>();
+            _rootCommand.Register<ExitCommand>(resolver);
+            _rootCommand.Register<ClearCommand>(resolver);
+            _rootCommand.Register<ClsCommand>(resolver);
 
             _commandTree = BuildTree();
         }

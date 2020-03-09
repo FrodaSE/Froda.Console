@@ -18,5 +18,11 @@ namespace Froda.ConsoleToolkit.Commands.Base
 
             Commands.Add(type);
         }
+        
+        public void Register<TCommand>(IResolver resolver) where TCommand : CommandBase
+        {
+            resolver.Register<TCommand>();
+            Register<TCommand>();
+        }
     }
 }
