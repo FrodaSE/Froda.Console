@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Froda.Console.Commands;
-using Froda.Console.Commands.Base;
+using Froda.ConsoleToolkit.Commands;
+using Froda.ConsoleToolkit.Commands.Base;
 
-namespace Froda.Console
+namespace Froda.ConsoleToolkit
 {
     public class ConsoleEngine
     {

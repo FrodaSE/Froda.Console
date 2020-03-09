@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froda.Console", "Froda.Console\Froda.Console.csproj", "{D5AF7950-04BC-472A-9732-9BCDC6A6268B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froda.ConsoleToolkit", "Froda.ConsoleToolkit\Froda.ConsoleToolkit.csproj", "{D5AF7950-04BC-472A-9732-9BCDC6A6268B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froda.Console.SampleNetCore", "Froda.Console.SampleNetCore\Froda.Console.SampleNetCore.csproj", "{FAC3BA98-4545-4245-88AE-DA55F0CFAE03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froda.ConsoleToolkit.SampleNetCore", "Froda.ConsoleToolkit.SampleNetCore\Froda.ConsoleToolkit.SampleNetCore.csproj", "{FAC3BA98-4545-4245-88AE-DA55F0CFAE03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Froda.Console\Froda.Console.csproj" />
+      <ProjectReference Include="..\Froda.ConsoleToolkit\Froda.ConsoleToolkit.csproj" />
     </ItemGroup>
 
 </Project>

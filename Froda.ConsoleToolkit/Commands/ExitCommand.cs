@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using Froda.Console.Commands.Base;
+using Froda.ConsoleToolkit.Commands.Base;
 
-namespace Froda.Console.Commands
+namespace Froda.ConsoleToolkit.Commands
 {
     public class ExitCommand : ActionCommandBase
     {

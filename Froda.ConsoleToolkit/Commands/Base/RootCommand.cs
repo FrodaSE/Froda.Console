@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Froda.Console.Commands.Base
+namespace Froda.ConsoleToolkit.Commands.Base
 {
     public class RootCommand
     {

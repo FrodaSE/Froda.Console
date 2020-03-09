@@ -1,6 +1,6 @@
 using System;
 
-namespace Froda.Console.Commands.Base
+namespace Froda.ConsoleToolkit.Commands.Base
 {
     public abstract class CommandBase
     {

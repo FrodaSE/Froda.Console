@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Froda.Console.Commands.Base;
+using Froda.ConsoleToolkit.Commands.Base;
 
-namespace Froda.Console
+namespace Froda.ConsoleToolkit
 {
     public class CommandTreeNode
     {

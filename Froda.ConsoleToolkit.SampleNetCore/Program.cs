@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Froda.Console.Commands.Base;
+using Froda.ConsoleToolkit;
+using Froda.ConsoleToolkit.Commands.Base;
 
-namespace Froda.Console.SampleNetCore
+namespace Froda.ConsoleToolkit.SampleNetCore
 {
     public class Program
     {
@@ -63,7 +64,7 @@ namespace Froda.Console.SampleNetCore
 
         public override Task ExecuteAsync()
         {
-            System.Console.WriteLine("News replay");
+            Console.WriteLine("News replay");
 
             return Task.CompletedTask;
         }
@@ -78,7 +79,7 @@ namespace Froda.Console.SampleNetCore
 
         public override Task ExecuteAsync()
         {
-            System.Console.WriteLine("Deleting replay");
+            Console.WriteLine("Deleting replay");
 
             return Task.CompletedTask;
         }

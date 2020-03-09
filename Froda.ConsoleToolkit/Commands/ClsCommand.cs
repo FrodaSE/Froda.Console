@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using Froda.Console.Commands.Base;
+using Froda.ConsoleToolkit.Commands.Base;
 
-namespace Froda.Console.Commands
+namespace Froda.ConsoleToolkit.Commands
 {
-    public class ClearCommand : ActionCommandBase
+    public class ClsCommand : ActionCommandBase
     {
-        public ClearCommand() : base("clear", "Clear the screen")
+        public ClsCommand() : base("cls", "Clear the screen")
         {
         }
 

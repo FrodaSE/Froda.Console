@@ -1,6 +1,6 @@
 using System;
 
-namespace Froda.Console
+namespace Froda.ConsoleToolkit
 {
     public interface IResolver
     {

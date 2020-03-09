@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Froda.Console.Commands.Base
+namespace Froda.ConsoleToolkit.Commands.Base
 {
     public abstract class ActionCommandBase : CommandBase
     {
