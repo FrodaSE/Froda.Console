@@ -7,4 +7,4 @@ To get started you can download the prebuilt [NuGet package](https://www.nuget.o
 
 ## Usage
 
-See Froda.Console.SampleNetCore
+See Froda.ConsoleToolkit.SampleNetCore
