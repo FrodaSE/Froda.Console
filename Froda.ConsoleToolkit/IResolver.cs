@@ -8,5 +8,6 @@ namespace Froda.ConsoleToolkit
         T Resolve<T>();
         object Resolve(Type type);
         void Register<TCommand>() where TCommand : CommandBase;
+        void Register(Type command);
     }
 }

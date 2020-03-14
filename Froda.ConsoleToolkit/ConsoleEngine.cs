@@ -10,16 +10,22 @@ namespace Froda.ConsoleToolkit
     {
         private readonly RootCommand _rootCommand;
         private readonly IResolver _resolver;
+        private readonly bool _autoRegisterCommands;
         private readonly CommandTree _commandTree;
 
-        public ConsoleEngine(RootCommand rootCommand) : this(rootCommand, new DefaultResolver())
+        public ConsoleEngine(RootCommand rootCommand) : this(rootCommand, new DefaultResolver(), true)
         {
         }
 
-        public ConsoleEngine(RootCommand rootCommand, IResolver resolver)
+        public ConsoleEngine(RootCommand rootCommand, IResolver resolver) : this(rootCommand, resolver, true)
+        {
+        }
+        
+        public ConsoleEngine(RootCommand rootCommand, IResolver resolver, bool autoRegisterCommands)
         {
             _rootCommand = rootCommand;
             _resolver = resolver;
+            _autoRegisterCommands = autoRegisterCommands;
 
             _rootCommand.Register<ExitCommand>(resolver);
             _rootCommand.Register<ClearCommand>(resolver);
@@ -30,7 +36,7 @@ namespace Froda.ConsoleToolkit
 
         private CommandTree BuildTree()
         {
-            var builder = new TreeBuilder(_resolver);
+            var builder = new TreeBuilder(_resolver, _autoRegisterCommands);
 
             return builder.CreateTree(_rootCommand);
         }
@@ -57,7 +63,7 @@ namespace Froda.ConsoleToolkit
 
                 if (node == null)
                 {
-                    System.Console.WriteLine("No command found.");
+                    Console.WriteLine("No command found.");
                     continue;
                 }
 
@@ -69,12 +75,12 @@ namespace Froda.ConsoleToolkit
                     }
                     catch (Exception e)
                     {
-                        var color = System.Console.ForegroundColor;
+                        var color = Console.ForegroundColor;
 
-                        System.Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("Command failed to run ...");
-                        System.Console.WriteLine(e.Message + ": " + e.StackTrace);
-                        System.Console.ForegroundColor = color;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Command failed to run ...");
+                        Console.WriteLine(e.Message + ": " + e.StackTrace);
+                        Console.ForegroundColor = color;
                         throw;
                     }
 
@@ -95,16 +101,16 @@ namespace Froda.ConsoleToolkit
 
         private void PrintAvailableCommands(IEnumerable<CommandTreeNode> nodes)
         {
-            System.Console.WriteLine("Commands:");
-            System.Console.WriteLine("");
+            Console.WriteLine("Commands:");
+            Console.WriteLine("");
             foreach (var subNode in nodes)
             {
-                System.Console.WriteLine(
+                Console.WriteLine(
                     "{0,-" + (_commandTree.MaxKeywordLength + 5) + "} {1,-" + (_commandTree.MaxDescriptionLength + 5) + ":N1}",
                     subNode.Keyword, subNode.Descrption);
             }
 
-            System.Console.WriteLine("");
+            Console.WriteLine("");
         }
     }
 }

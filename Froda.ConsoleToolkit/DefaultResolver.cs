@@ -19,5 +19,10 @@ namespace Froda.ConsoleToolkit
         {
             
         }
+
+        public void Register(Type command)
+        {
+            
+        }
     }
 }

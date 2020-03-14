@@ -6,10 +6,22 @@ namespace Froda.ConsoleToolkit
     public class TreeBuilder
     {
         private readonly IResolver _resolver;
+        private readonly bool _autoRegister;
 
-        public TreeBuilder(IResolver resolver)
+        public TreeBuilder(IResolver resolver, bool autoRegister)
         {
             _resolver = resolver;
+            _autoRegister = autoRegister;
+        }
+
+        private CommandBase Resolve(Type command)
+        {
+            var instance = _resolver.Resolve(command);
+            
+            if(instance == null && _autoRegister)
+                _resolver.Register(command);
+            
+            return (CommandBase) instance;
         }
 
         public CommandTree CreateTree(RootCommand rootCommand)
@@ -18,7 +30,7 @@ namespace Froda.ConsoleToolkit
 
             foreach (var command in rootCommand.Commands)
             {
-                var commandInstance = (CommandBase) _resolver.Resolve(command);
+                var commandInstance = Resolve(command);
 
                 var node = CreateNode(commandInstance);
 
@@ -61,7 +73,7 @@ namespace Froda.ConsoleToolkit
 
                 foreach (var containerCommand in container.Commands)
                 {
-                    var commandInstance = (CommandBase) _resolver.Resolve(containerCommand);
+                    var commandInstance = Resolve(containerCommand);
 
                     var commandTreeNode = CreateNode(commandInstance);
                     
