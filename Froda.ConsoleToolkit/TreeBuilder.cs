@@ -17,9 +17,12 @@ namespace Froda.ConsoleToolkit
         private CommandBase Resolve(Type command)
         {
             var instance = _resolver.Resolve(command);
-            
-            if(instance == null && _autoRegister)
-                _resolver.Register(command);
+
+            if (instance == null && _autoRegister)
+            {
+                _resolver.Register(command); 
+                instance = _resolver.Resolve(command);
+            }
             
             return (CommandBase) instance;
         }
