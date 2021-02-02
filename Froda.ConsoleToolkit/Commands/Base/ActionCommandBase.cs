@@ -13,34 +13,22 @@ namespace Froda.ConsoleToolkit.Commands.Base
 
         protected string Query(string message)
         {
-            return Query<string>(message);
+            return Input.Query(message);
+        }
+
+        protected string Query(string message, string[] selectionOptions)
+        {
+            return Input.Query<string>(message, selectionOptions);
         }
 
         protected T Query<T>(string message)
         {
-            string[] selectionOptions = null;
-
-            if (typeof(T) == typeof(bool) || typeof(T) == typeof(bool?))
-                selectionOptions = new[] {false.ToString(), true.ToString()};
-                
-            
-            return Query<T>(message, selectionOptions);
+            return Input.Query<T>(message);
         }
         
         protected T Query<T>(string message, string[] selectionOptions)
         {
-            if (selectionOptions != null && selectionOptions.Any())
-            {
-                ReadLine.AutoCompletionHandler = new SimpleAutoCompletionHandler(selectionOptions);
-            }
-            else
-            {
-                ReadLine.AutoCompletionHandler = null;
-            }
-            
-            var input = ReadLine.Read(message + ": ");
-
-            return (T) TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(input);
+            return Input.Query<T>(message, selectionOptions);
         }
 
 
